@@ -25,7 +25,7 @@ function operate (operator, firstNumber, secondNumber) {
     else if (operator = "*") return multiply(firstNumber,secondNumber);
     else if (operator = "/") return divide(firstNumber, secondNumber);
 }
-
+ 
 // Display
 const display = document.getElementById("display");
 
@@ -83,12 +83,16 @@ buttonZero.addEventListener("click" , function() {
 // Equals Button
 const buttonEquals = document.getElementById("equals");
 buttonEquals.addEventListener ("click", function() {
-    secondNumber = Number(display.textContent);
+    secondNumber = Number(display.textContent.replace(/\D/g, ""));
     if (operator === "+") {
         display.textContent = add(firstNumber, secondNumber);
-    }
-
-    else display.textContent = "";
+    } else if (operator === "-") {
+        display.textContent = subtract(firstNumber, secondNumber);
+    } else if (operator === "*") {
+        display.textContent = multiply(firstNumber, secondNumber);
+    } else if (operator === "/") {
+        display.textContent = divide(firstNumber, secondNumber);
+    } else display.textContent = "";
 })
 
 // Operators
@@ -98,6 +102,27 @@ buttonAdd.addEventListener("click" , function() {
     firstNumber = Number(display.textContent);
     display.textContent = "+";
 })
+
+const buttonSubtract = document.getElementById("subtract");
+buttonSubtract.addEventListener("click" , function() {
+    operator = "-";
+    firstNumber = Number(display.textContent);
+    display.textContent = "-";
+});
+
+const buttonMultiply = document.getElementById("multiply");
+buttonMultiply.addEventListener("click" , function() {
+    operator = "*";
+    firstNumber = Number(display.textContent);
+    display.textContent = "*";
+});
+
+const buttonDivide = document.getElementById("divide");
+buttonDivide.addEventListener("click" , function() {
+    operator = "/";
+    firstNumber = Number(display.textContent);
+    display.textContent = "/";
+});
 
 // Clear Button 
 const buttonClear = document.getElementById("ac");
