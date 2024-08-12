@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 body {
@@ -10,7 +11,10 @@ body {
 
 button {
     height: 107.5px;
-    width:100%
+    width:100%;
+    font-size: 16px;
+    font-weight:bold;
+    border-radius:5px;
 }
 
 .calculator {
@@ -19,10 +23,16 @@ button {
     height:700px;
 }
 
-.display {
+#display {
+    display:flex;
     width: 490px;
     height: 150px;
     border: 5px solid black;
+    background-color: #A6D8D4;
+    justify-content: end;
+    align-items:center;
+    font-size: 65px;
+    font-weight: bold;
 }
 
 .buttons {
@@ -30,7 +40,6 @@ button {
     width: 490px;
     height: 540px;
     border: 1px solid black;
-    border-radius: 5px;
     flex-direction:row;
 }
 
